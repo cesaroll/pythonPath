@@ -12,7 +12,7 @@ class Student:
         students.append(self)
 
     def __str__(self):
-        return f"Student: {self.name}"
+        return "Student: {0}".format(self.name)
 
     def get_name_capitalize(self):
         return self.name.capitalize()
@@ -20,7 +20,7 @@ class Student:
     def getSchoolName(self):
         return self.schoolName
 
-cesar = Student("Cesar")
+cesar = Student("cesar")
 
 print(cesar)
 print(cesar.get_name_capitalize())
@@ -30,3 +30,14 @@ print(cesar.getSchoolName())
 print(Student.schoolName)
 
 #print(students)
+
+class HighSchoolStudent(Student):
+
+    schoolName = "Rodriguez High School"
+
+    def get_name_capitalize(self):
+        return super().get_name_capitalize() + "-HS"
+
+mark = HighSchoolStudent("mark")
+print(mark.get_name_capitalize())
+
