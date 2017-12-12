@@ -9,7 +9,7 @@ def is_prime(x):
             return False
     return True
 
-def sumPrimes(maxNum):
+def sumPrimes(maxNu
     return sum(islice((x for x in count() if is_prime(x)), maxNum) )
 
 def run_sumPrimes():
