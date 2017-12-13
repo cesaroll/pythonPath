@@ -1,5 +1,7 @@
 """ Model for aircraft flights """
 
+from pprint import pprint as pp
+
 class FligthEmpty:
     pass # Do nothing pass statement to be syntactically admisible
 
@@ -18,6 +20,9 @@ class Flight:
         
         self._number = number
         self._aircraft = aircraft
+        
+        rows, seats = self._aircraft.seating_plan()
+        self._seating = [None] + [{letter: None for letter in seats} for _ in rows]
     
     def number(self):
         return self._number
@@ -45,4 +50,6 @@ class Aircraft:
     def seating_plan(self): #returns tuple
         return (range(1, self._num_rows + 1), "ABCDEFGHJK"[:self._num_seats_per_row])
         
-    
+if __name__ == '__main__':
+    f = Flight("BA758", Aircraft("G-EUPT", "Airbus A319", num_rows=22, num_seats_per_row=6) )
+    pp(f._seating)
