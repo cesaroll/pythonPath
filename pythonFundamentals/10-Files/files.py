@@ -33,7 +33,7 @@ def read_file(fileName):
     
     g.close()
 
-def read_allfile(fielName):
+def read_allfile(fileName):
     f = open(fileName, mode='rt', encoding='utf-8')
     print()
     print(f.read())
