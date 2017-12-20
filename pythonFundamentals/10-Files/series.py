@@ -3,24 +3,9 @@
 import sys
 
 def read_series(fileName):
-    try:
-        f = open(fileName, mode='rt', encoding='utf-8')
-        
-        """ For Loop
-        series = []
-        for line in f:
-            a = int(line.strip())
-            series.append(a)
-            
-            
-        return series
-        """
-        
-        """ List comprehension """
+    """ Using Context Manager With-Block, Close call is no longer needed """
+    with open(fileName, mode='rt', encoding='utf-8') as f:
         return [ int(line.strip()) for line in f]
-        
-    finally:
-        f.close()
 
 def main(fileName):
     series = read_series(fileName)

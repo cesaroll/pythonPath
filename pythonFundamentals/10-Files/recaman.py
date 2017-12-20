@@ -15,9 +15,8 @@ def sequence():
 
 def write_sequence(fileName, num):
     """Write recaman's sequence to a text file."""
-    f = open(fileName, mode='wt', encoding='utf-8')
-    f.writelines("{0}\n".format(r) for r in islice(sequence(), num + 1))
-    f.close()
+    with open(fileName, mode='wt', encoding='utf-8') as f:
+        f.writelines("{0}\n".format(r) for r in islice(sequence(), num + 1))
     
 if __name__ == "__main__":
     write_sequence(fileName=sys.argv[1], num=int(sys.argv[2]))
